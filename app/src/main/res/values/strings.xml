@@ -1,0 +1,14 @@
+<resources>
+
+    <!-- General -->
+
+    <string name="app_name">MVP</string>
+
+    <!-- Login -->
+
+    <string name="ET_username_hint">Username</string>
+    <string name="ET_password_hint">Password</string>
+    <string name="BTN_login">Login</string>
+
+
+</resources>

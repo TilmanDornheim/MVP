@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="lofft.mvp.Login.LoginActivity">
+
+    <!-- Top 60% of screen for Username and password Input -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6"
+        >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            >
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ET_login_username"
+                android:layout_marginBottom="10dp"
+                android:hint="@string/ET_username_hint"
+                android:inputType="textPersonName"
+                android:gravity="center"
+                />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/ET_login_password"
+                android:layout_marginTop="10dp"
+                android:hint="@string/ET_password_hint"
+                android:inputType="textPassword"
+                android:gravity="center"
+                />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!-- Bottom 40% of screen for login Button -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.4"
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/BTN_login"
+            android:background="@color/Gold"
+            android:textColor="@color/White"
+            android:textStyle="bold"
+            android:id="@+id/BTN_login_login"
+
+
+
+            />
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>
