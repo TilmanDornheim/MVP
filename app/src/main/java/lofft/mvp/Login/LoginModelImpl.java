@@ -3,6 +3,8 @@ package lofft.mvp.Login;
 
 import android.os.Handler;
 
+import org.greenrobot.eventbus.EventBus;
+
 /**
  * Created by tilma on 2018-01-24.
  */
@@ -11,8 +13,9 @@ public class LoginModelImpl implements LoginModel {
 
 
 	@Override
-	public void login(final String username, final String password, final OnLoginFinishedListener listener) {
+	public void login(final String username, final String password) {
 
+		final LoginEvent event = new LoginEvent();
 
 		//Mock Login using Handler to delay the answer
 		new Handler().postDelayed(new Runnable() {
@@ -21,18 +24,19 @@ public class LoginModelImpl implements LoginModel {
 
 				if (UsernameAndPasswordFilledOut(username, password)) {
 
-					listener.onLoginSuccess();
+					event.setSuccess(true);
+
 
 				} else {
 
-					listener.onLoginFailure();
+					event.setSuccess(false);
 
 				}
 
+				EventBus.getDefault().post(event);
+
 			}
 		}, 2000);
-
-
 
 
 	}

@@ -1,10 +1,13 @@
 package lofft.mvp.Login;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+
 /**
  * Created by tilma on 2018-01-24.
  */
 
-public class LoginPresenterImpl implements LoginPresenter, LoginModel.OnLoginFinishedListener {
+public class LoginPresenterImpl implements LoginPresenter {
 
 	private LoginView view;
 	private LoginModel model;
@@ -24,7 +27,7 @@ public class LoginPresenterImpl implements LoginPresenter, LoginModel.OnLoginFin
 
 		}
 
-		model.login(username, password, this);
+		model.login(username, password);
 
 
 	}
@@ -36,19 +39,36 @@ public class LoginPresenterImpl implements LoginPresenter, LoginModel.OnLoginFin
 
 	}
 
-
 	@Override
-	public void onLoginSuccess() {
+	public void onStart() {
 
-		view.displaySuccess();
-		view.hideProgress();
+		EventBus.getDefault().register(this);
 
 	}
 
 	@Override
-	public void onLoginFailure() {
+	public void onStop() {
 
-		view.displayFailure();
-		view.hideProgress();
+		EventBus.getDefault().unregister(this);
+
 	}
+
+	//Subscribe to login Events
+	@Subscribe
+	public void onLoginEvent(LoginEvent loginEvent) {
+
+		if (loginEvent.wasSuccess()) {
+
+			view.displaySuccess();
+			view.hideProgress();
+
+		} else {
+
+			view.displayFailure();
+			view.hideProgress();
+		}
+
+	}
+
+
 }

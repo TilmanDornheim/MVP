@@ -6,18 +6,8 @@ package lofft.mvp.Login;
 
 public interface LoginModel {
 
-	interface OnLoginFinishedListener{
 
-
-		void onLoginSuccess();
-
-		void onLoginFailure();
-
-	}
-
-
-	void login(String username, String password, OnLoginFinishedListener listener);
-
+	void login(String username, String password);
 
 
 }

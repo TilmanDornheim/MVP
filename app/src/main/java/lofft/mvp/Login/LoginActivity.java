@@ -67,6 +67,22 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
 	}
 
+	@Override
+	protected void onStart() {
+
+		super.onStart();
+		presenter.onStart();
+
+	}
+
+	@Override
+	protected void onStop() {
+
+		super.onStop();
+		presenter.onStop();
+
+	}
+
 	//Implementation of View-Interface methods
 
 

@@ -10,4 +10,8 @@ public interface LoginPresenter {
 
 	void onDestroy();
 
+	void onStart();
+
+	void onStop();
+
 }
