@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="lofft.mvp.Login.LoginActivity">
+    tools:context="lofft.mvp.login.LoginActivity">
 
     <!-- Top 60% of screen for Username and password Input -->
 

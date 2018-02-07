@@ -1,4 +1,4 @@
-package lofft.mvp.Login;
+package eventbusevents;
 
 /**
  * Created by tilma on 2018-01-25.

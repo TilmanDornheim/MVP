@@ -9,6 +9,8 @@
     <string name="ET_username_hint">Username</string>
     <string name="ET_password_hint">Password</string>
     <string name="BTN_login">Login</string>
+    <string name="DLG_home_empty">Could not find any parties</string>
+    <string name="DLG_home_empty_ok">Ok</string>
 
 
 </resources>

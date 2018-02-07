@@ -1,7 +1,11 @@
-package lofft.mvp.Login;
+package lofft.mvp.login;
+
+import android.util.Log;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
+
+import eventbusevents.LoginEvent;
 
 /**
  * Created by tilma on 2018-01-24.
@@ -53,17 +57,21 @@ public class LoginPresenterImpl implements LoginPresenter {
 
 	}
 
+
+
 	//Subscribe to login Events
 	@Subscribe
-	public void onLoginEvent(LoginEvent loginEvent) {
+	void onLoginEvent(LoginEvent loginEvent) {
 
 		if (loginEvent.wasSuccess()) {
 
+			Log.d("Login","Success");
 			view.displaySuccess();
 			view.hideProgress();
 
 		} else {
 
+			Log.d("Login","Failure");
 			view.displayFailure();
 			view.hideProgress();
 		}

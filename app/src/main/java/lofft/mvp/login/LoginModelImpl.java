@@ -1,9 +1,11 @@
-package lofft.mvp.Login;
+package lofft.mvp.login;
 
 
 import android.os.Handler;
 
 import org.greenrobot.eventbus.EventBus;
+
+import eventbusevents.LoginEvent;
 
 /**
  * Created by tilma on 2018-01-24.

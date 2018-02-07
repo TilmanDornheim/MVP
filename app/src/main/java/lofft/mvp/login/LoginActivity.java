@@ -1,12 +1,14 @@
-package lofft.mvp.Login;
+package lofft.mvp.login;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import home.HomeActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -110,7 +112,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 	@Override
 	public void displaySuccess() {
 
-		Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show();
+		Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+		startActivity(i);
 
 	}
 
