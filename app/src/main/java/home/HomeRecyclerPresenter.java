@@ -10,4 +10,6 @@ public interface HomeRecyclerPresenter {
 
 	int getItemCount();
 
+	void onItemClick(int position);
+
 }

@@ -33,4 +33,10 @@ public class PartiesReceivedEvent {
 		return parties.isEmpty();
 
 	}
+
+	public void clearEvent(){
+
+		parties.clear();
+
+	}
 }

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -122,6 +123,13 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 
 		recyler.setLayoutManager(new LinearLayoutManager(this));
 		recyler.setAdapter(adapter);
+
+	}
+
+	@Override
+	public void onRecyclerItemClick(int position) {
+
+		Toast.makeText(this, "Item #" + position + " clicked", Toast.LENGTH_SHORT).show();
 
 	}
 

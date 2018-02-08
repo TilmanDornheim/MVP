@@ -65,13 +65,11 @@ public class LoginPresenterImpl implements LoginPresenter {
 
 		if (loginEvent.wasSuccess()) {
 
-			Log.d("Login","Success");
 			view.displaySuccess();
 			view.hideProgress();
 
 		} else {
 
-			Log.d("Login","Failure");
 			view.displayFailure();
 			view.hideProgress();
 		}

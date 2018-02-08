@@ -12,4 +12,6 @@ public interface HomeView {
 
 	void setAdapter(HomeRecyclerAdapter adapter);
 
+	void onRecyclerItemClick(int position);
+
 }

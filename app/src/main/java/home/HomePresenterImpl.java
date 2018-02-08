@@ -69,7 +69,7 @@ public class HomePresenterImpl implements HomePresenter {
 
 		} else {
 
-			presenter = new HomeRecyclerPresenterImpl(event.getParties());
+			presenter = new HomeRecyclerPresenterImpl(event.getParties(), view);
 
 			HomeRecyclerAdapter adapter = new HomeRecyclerAdapter(presenter);
 

@@ -15,16 +15,23 @@ import lofft.mvp.R;
  * Created by tilma on 2018-02-06.
  */
 
-public class HomeRecyclerHolder extends RecyclerView.ViewHolder implements HomeHolderView {
+public class HomeRecyclerHolder extends RecyclerView.ViewHolder implements HomeHolderView,View.OnClickListener {
 
 	//Fields
 	TextView title;
 	ImageView image;
+	View itemView;
+	HomeRecyclerPresenter presenter;
 
-	public HomeRecyclerHolder(View itemView) {
+	public HomeRecyclerHolder(View itemView, HomeRecyclerPresenter presenter) {
 		super(itemView);
+		this.itemView = itemView;
+		this.presenter = presenter;
+
 		title = (TextView) itemView.findViewById(R.id.TV_HomeRecycler_Title);
 		image = (ImageView)itemView.findViewById(R.id.IV_HomeRecycler_Image);
+
+		itemView.setOnClickListener(this);
 	}
 
 	@Override
@@ -36,7 +43,14 @@ public class HomeRecyclerHolder extends RecyclerView.ViewHolder implements HomeH
 	@Override
 	public void setPicture(String url) {
 
-		Picasso.with(image.getContext()).load(url).into(image);
+		Picasso.with(itemView.getContext()).load(url).into(image);
+
+	}
+
+	@Override
+	public void onClick(View v) {
+
+		presenter.onItemClick(getAdapterPosition());
 
 	}
 }
