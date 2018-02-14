@@ -76,8 +76,8 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 	private void setUpErrorAlert() {
 
 		builder = new AlertDialog.Builder(this);
-		builder.setTitle("Error receiving parties");
-		builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+		builder.setTitle(R.string.DLG_home_error);
+		builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 
