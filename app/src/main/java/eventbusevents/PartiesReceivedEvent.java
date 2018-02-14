@@ -1,6 +1,7 @@
 package eventbusevents;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import datamodels.Party;
 
@@ -9,6 +10,8 @@ import datamodels.Party;
  */
 
 public class PartiesReceivedEvent {
+
+	private boolean error = false;
 
 	private ArrayList<Party> parties = new ArrayList<>();
 
@@ -19,6 +22,12 @@ public class PartiesReceivedEvent {
 	public void addParty(Party party) {
 
 		parties.add(party);
+
+	}
+
+	public void setListOfParties(List<Party> partyList){
+
+		parties = (ArrayList<Party>) partyList;
 
 	}
 
@@ -38,5 +47,13 @@ public class PartiesReceivedEvent {
 
 		parties.clear();
 
+	}
+
+	public boolean isError() {
+		return error;
+	}
+
+	public void setError(boolean error) {
+		this.error = error;
 	}
 }

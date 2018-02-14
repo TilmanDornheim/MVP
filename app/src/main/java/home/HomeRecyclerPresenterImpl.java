@@ -3,6 +3,7 @@ package home;
 import java.util.ArrayList;
 
 import datamodels.Party;
+import util.Constants;
 
 /**
  * Created by tilma on 2018-02-06.
@@ -26,8 +27,8 @@ public class HomeRecyclerPresenterImpl implements HomeRecyclerPresenter {
 	public void bindRowViewAtPosition(int position, HomeHolderView holder) {
 
 		Party party = parties.get(position);
-		holder.setTitle(party.getTitle());
-		holder.setPicture(party.getUrl());
+		holder.setTitle(Integer.toString(party.getHost_id()));
+		holder.setPicture(Constants.DUMMY_PIC_URL);
 
 
 	}

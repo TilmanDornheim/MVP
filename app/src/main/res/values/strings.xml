@@ -11,6 +11,7 @@
     <string name="BTN_login">Login</string>
     <string name="DLG_home_empty">Could not find any parties</string>
     <string name="DLG_home_empty_ok">Ok</string>
+    <string name="DLG_home_loading">Getting Parties...</string>
 
 
 </resources>

@@ -10,6 +10,8 @@ public interface HomeView {
 
 	void showIsEmpty();
 
+	void showError();
+
 	void setAdapter(HomeRecyclerAdapter adapter);
 
 	void onRecyclerItemClick(int position);

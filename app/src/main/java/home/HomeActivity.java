@@ -23,7 +23,8 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 	private ProgressDialog dialog;
 	HomePresenter presenter;
 	AlertDialog.Builder builder;
-	AlertDialog alertDialog;
+	AlertDialog emptyDialog, errorDialog;
+
 
 	//Butterknife
 	@BindView(R.id.RV_home_recycler)
@@ -36,15 +37,17 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 	protected void onCreate(Bundle savedInstanceState) {
 
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_home);
+		setContentView(R.layout.home_activity);
 
 		ButterKnife.bind(this);
 
-		presenter = new HomePresenterImpl(this,new HomeModelImpl());
+		presenter = new HomePresenterImpl(this, new HomeModelImpl());
 
 		setUpEmptyAlert();
+		setUpErrorAlert();
 
 		dialog = new ProgressDialog(this);
+		dialog.setTitle(getString(R.string.DLG_home_loading));
 		dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 
 		//Initial call to get Data
@@ -65,8 +68,35 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 			}
 		});
 
-		alertDialog = builder.create();
+		emptyDialog = builder.create();
 
+
+	}
+
+	private void setUpErrorAlert() {
+
+		builder = new AlertDialog.Builder(this);
+		builder.setTitle("Error receiving parties");
+		builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+
+				dialog.dismiss();
+
+			}
+		});
+
+		builder.setNegativeButton("Try again", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+
+				presenter.getParties();
+				dialog.dismiss();
+
+			}
+		});
+
+		errorDialog = builder.create();
 
 	}
 
@@ -79,7 +109,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 	}
 
 	@Override
-	protected void onStop(){
+	protected void onStop() {
 
 		super.onStop();
 		presenter.onStop();
@@ -87,7 +117,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 	}
 
 	@Override
-	protected void onDestroy(){
+	protected void onDestroy() {
 
 		super.onDestroy();
 		presenter.onDestroy();
@@ -114,7 +144,14 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 	@Override
 	public void showIsEmpty() {
 
-		alertDialog.show();
+		emptyDialog.show();
+
+	}
+
+	@Override
+	public void showError() {
+
+		errorDialog.show();
 
 	}
 

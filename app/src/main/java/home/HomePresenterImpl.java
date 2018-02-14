@@ -55,7 +55,7 @@ public class HomePresenterImpl implements HomePresenter {
 	}
 
 	@Subscribe
-	void onPartiesRecevied(PartiesReceivedEvent event) {
+	void onPartiesReceived(PartiesReceivedEvent event) {
 
 		if (view != null) {
 
@@ -63,17 +63,26 @@ public class HomePresenterImpl implements HomePresenter {
 
 		}
 
-		if (event.isEmpty()) {
+		if (event.isError()) {
 
-			view.showIsEmpty();
+			view.showError();
 
 		} else {
 
-			presenter = new HomeRecyclerPresenterImpl(event.getParties(), view);
 
-			HomeRecyclerAdapter adapter = new HomeRecyclerAdapter(presenter);
+			if (event.isEmpty()) {
 
-			view.setAdapter(adapter);
+				view.showIsEmpty();
+
+			} else {
+
+				presenter = new HomeRecyclerPresenterImpl(event.getParties(), view);
+
+				HomeRecyclerAdapter adapter = new HomeRecyclerAdapter(presenter);
+
+				view.setAdapter(adapter);
+
+			}
 
 		}
 
